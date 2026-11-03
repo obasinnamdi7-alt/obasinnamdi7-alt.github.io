@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coastbloc – Commercial Connections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7f9; --surface:#ffffff; --ink:#121929; --muted:#4b5566; --line:#dde1e8;
+  --gold:#b8913f; --gold-soft:#d4b572; --hero:#121929; --hero-ink:#ffffff; --hero-muted:#c3c9d6;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#0d1320; --surface:#151d2f; --ink:#f1f3f7; --muted:#a6afc0; --line:#27314a; --gold:#d4b572; --hero:#0a0f1a;}
+}
+:root[data-theme="dark"]{--bg:#0d1320; --surface:#151d2f; --ink:#f1f3f7; --muted:#a6afc0; --line:#27314a; --gold:#d4b572; --hero:#0a0f1a;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold-soft);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* hero */
+.hero{background:var(--hero);color:var(--hero-ink);padding:28px 0 88px}
+.brand{display:flex;align-items:center;gap:16px}
+.mark{width:64px;height:64px;display:grid;place-items:center;flex:none}
+.brand b{font-family:Fraunces,Georgia,serif;font-size:1.7rem;letter-spacing:.02em;display:block;line-height:1.1}
+.brand span{color:var(--gold-soft);font-size:.82rem;letter-spacing:.14em;text-transform:uppercase}
+.hero h1{font-family:Fraunces,Georgia,serif;font-weight:700;font-size:clamp(2.2rem,6vw,4rem);line-height:1.08;margin:84px 0 20px;max-width:14em}
+.hero p{color:var(--hero-muted);max-width:34em;margin:0 0 32px;font-size:1.1rem}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:999px;font-weight:700;text-decoration:none;font-size:.98rem}
+.btn.gold{background:var(--gold-soft);color:#121929}
+.btn.ghost{border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn:hover{filter:brightness(1.08)}
+
+/* sections */
+section{padding:72px 0}
+h2{font-family:Fraunces,Georgia,serif;font-size:clamp(1.7rem,4vw,2.4rem);margin:0 0 12px;line-height:1.15}
+.lead{color:var(--muted);max-width:40em;margin:0 0 36px}
+
+.what{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;border-top:1px solid var(--line);padding-top:28px}
+.what h3{margin:0 0 6px;font-size:1.05rem;color:var(--gold)}
+.what p{margin:0;color:var(--muted);font-size:.97rem}
+
+/* accordion */
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;align-items:start}
+.group{background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.group>button{all:unset;box-sizing:border-box;display:flex;width:100%;align-items:center;gap:14px;padding:18px 20px;cursor:pointer;border-radius:14px}
+.group>button:focus-visible{outline:3px solid var(--gold-soft);outline-offset:2px}
+.group .ic{width:42px;height:42px;border-radius:10px;background:var(--hero);color:var(--gold-soft);display:grid;place-items:center;flex:none}
+.group .t{flex:1}
+.group .t strong{display:block;font-size:1.05rem}
+.group .t small{color:var(--muted);font-size:.88rem}
+.chev{width:12px;height:12px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);transition:transform .25s;margin-right:4px}
+.group.open .chev{transform:rotate(-135deg)}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}
+.group.open .panel{grid-template-rows:1fr}
+.panel>div{overflow:hidden}
+.panel ul{margin:0;padding:4px 20px 20px 76px;color:var(--muted);font-size:.96rem}
+.panel li{margin:6px 0}
+.panel li b{color:var(--ink);font-weight:500}
+.hint{margin-top:20px;color:var(--muted);font-size:.93rem}
+
+/* contact */
+.contact{background:var(--hero);color:var(--hero-ink)}
+.contact .lead{color:var(--hero-muted)}
+.card{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;border-top:1px solid rgba(255,255,255,.18);padding-top:28px}
+.card small{display:block;color:var(--gold-soft);font-size:.85rem;margin-bottom:4px}
+.card a,.card span{font-size:1.15rem;text-decoration:none;word-break:break-all}
+.card a:hover{text-decoration:underline}
+footer{padding:28px 0;color:var(--muted);font-size:.88rem;text-align:center;background:var(--bg)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:520px){.panel ul{padding-left:36px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">
+        <svg width="64" height="64" viewBox="0 0 24 24"><rect x="0.3" y="0.3" width="23.4" height="23.4" rx="5.2" fill="#111827" stroke="#D4B574" stroke-opacity=".35" stroke-width=".4"/><g fill="none" stroke="#D4B574" stroke-width="2.16" stroke-linecap="round" stroke-linejoin="round" transform="translate(12 12) scale(0.8) translate(-12 -12)"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></g></svg>
+      </div>
+      <div><b>COASTBLOC</b><span>Commercial Connections</span></div>
+    </div>
+    <h1>Connecting Opportunities. Creating Value.</h1>
+    <p>We link buyers with the right suppliers, and people with the services they need, so deals get done faster and with less guesswork.</p>
+    <div class="btns">
+      <a class="btn gold" href="#contact">Get in touch</a>
+      <a class="btn ghost" href="#services">See what we source</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <h2>What we do</h2>
+    <p class="lead">Coastbloc is a commercial intermediary. You tell us what you need or what you supply, and we make the right introduction.</p>
+    <div class="what">
+      <div><h3>Product and service outsourcing</h3><p>Need something sourced or delivered? We find a reliable supplier or provider for you.</p></div>
+      <div><h3>Business introductions</h3><p>We put you in front of the right people on the other side of the deal.</p></div>
+      <div><h3>Commercial deals</h3><p>We help buyers and sellers agree terms that work for both.</p></div>
+      <div><h3>Client acquisition</h3><p>Suppliers and service providers get access to new, qualified buyers.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:0">
+  <div class="wrap">
+    <h2>Categories we work in</h2>
+    <p class="lead">Tap a category to see the products and services we can connect you to.</p>
+    <div class="groups" id="groups"></div>
+    <p class="hint">Don’t see what you need? Ask us. If it can be supplied, we can usually find someone who supplies it.</p>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Let’s talk</h2>
+    <p class="lead">Buying, supplying or looking for a service? Send us a message and we’ll take it from there.</p>
+    <div class="card">
+      <div><small>Founder &amp; Commercial Intermediary</small><span>Obasi Nnamdi</span></div>
+      <div><small>Phone / WhatsApp</small><a href="tel:+2349061543201">+234 906 154 3201</a></div>
+      <div><small>Email</small><a href="mailto:obasinnamdi7@gmail.com">obasinnamdi7@gmail.com</a></div>
+      <div><small>Location</small><span>Lagos, Nigeria</span></div>
+    </div>
+    <div class="btns" style="margin-top:32px">
+      <a class="btn gold" href="https://wa.me/2349061543201">Message on WhatsApp</a>
+      <a class="btn ghost" href="mailto:obasinnamdi7@gmail.com">Send an email</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© <span id="yr">2026</span> Coastbloc. All rights reserved.</footer>
+
+<script>
+var icons={
+ fashion:'<path d="M8 3 3 6l2 4 3-1v12h8V9l3 1 2-4-5-3a4 4 0 0 1-8 0Z"/>',
+ packaging:'<path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="m3 8 9 5 9-5M12 13v8"/>',
+ clean:'<path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8Z"/><path d="M19 15l.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8ZM5 16l.6 1.4 1.4.6-1.4.6L5 20l-.6-1.4L3 18l1.4-.6Z"/>',
+ office:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+ food:'<path d="M12 21c-5 0-8-3-8-8 5 0 8 2 8 8Zm0 0c0-6 3-8 8-8 0 5-3 8-8 8Z"/><path d="M12 13V4"/>',
+ electronics:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
+ building:'<path d="M3 21h18M5 21V9l7-5 7 5v12"/><path d="M10 21v-6h4v6"/>',
+ logistics:'<path d="M2 6h12v10H2zM14 10h4l4 4v2h-8"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>',
+ pro:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V4h6v3M3 13h18"/>'
+};
+var data=[
+ {k:'fashion',t:'Fashion',s:'Clothing, footwear and accessories',i:['Ready-to-wear and made-to-order clothing','Uniforms, workwear and corporate wear','Shoes, bags and leather goods','Fabrics, tailoring and custom branding']},
+ {k:'packaging',t:'Packaging',s:'Boxes, bottles, labels and more',i:['Cartons, boxes and shipping packaging','Bottles, jars and containers','Branded bags, labels and stickers','Food-grade and retail packaging']},
+ {k:'office',t:'Office supplies',s:'Everything to keep a business running',i:['Stationery and printed materials','Office furniture and equipment','Printers, toners and consumables','Bulk supply for companies and schools']},
+ {k:'clean',t:'Cleaning and hygiene',s:'Sanitation, fumigation and facility care',i:['Home and office cleaning','Industrial and post-construction cleaning','Fumigation and pest control','Sanitation and janitorial supplies','Waste disposal and refuse removal','Laundry, dry cleaning and upholstery care']},
+ {k:'food',t:'Food and agro products',s:'Farm produce and processed goods',i:['Grains, spices and fresh produce','Processed and packaged foods','Catering and event supplies','Export and wholesale sourcing']},
+ {k:'electronics',t:'Electronics and appliances',s:'Devices, solar and home equipment',i:['Phones, laptops and accessories','Solar panels, inverters and batteries','Home and kitchen appliances','CCTV and security equipment']},
+ {k:'building',t:'Building and hardware',s:'Materials and tools for projects',i:['Cement, roofing and tiles','Plumbing and electrical supplies','Tools and machinery','Contractors and project suppliers']},
+ {k:'logistics',t:'Logistics and delivery',s:'Moving goods from A to B',i:['Local and interstate haulage','Import and export clearing','Courier and last-mile delivery','Warehousing and storage']},
+ {k:'pro',t:'Professional services',s:'Skilled people for business needs',i:['Branding, design and printing','Website and digital marketing','Business registration and compliance','Accounting and consulting']}
+];
+var box=document.getElementById('groups');
+data.forEach(function(g,n){
+  var d=document.createElement('div');d.className='group';
+  d.innerHTML='<button type="button" aria-expanded="false" aria-controls="p'+n+'">'+
+    '<span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+icons[g.k]+'</svg></span>'+
+    '<span class="t"><strong>'+g.t+'</strong><small>'+g.s+'</small></span><span class="chev"></span></button>'+
+    '<div class="panel" id="p'+n+'"><div><ul>'+g.i.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div></div>';
+  var b=d.querySelector('button');
+  b.addEventListener('click',function(){
+    var o=d.classList.toggle('open');b.setAttribute('aria-expanded',o);
+  });
+  box.appendChild(d);
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
